@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Day 02 : 1202 Program Alarm
-=======
-# Day 2: 1202 Program Alarm
->>>>>>> 1b83c021cc4843657404208378f4a3e728742232
+# Day 02: 1202 Program Alarm
 
 * Difficulty: ⭐
 
