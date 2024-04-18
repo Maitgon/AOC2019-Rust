@@ -1,4 +1,4 @@
-# Day 01 : The Tyranny of the Rocket Equation
+# Day 02 : The Tyranny of the Rocket Equation
 
 * Difficulty: ⭐
 
