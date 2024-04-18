@@ -1,4 +1,4 @@
-# Day 02 : The Tyranny of the Rocket Equation
+# Day 02 : 1202 Program Alarm
 
 * Difficulty: ⭐
 
