@@ -6,9 +6,9 @@ use std::fs::read_to_string;
 pub fn solve() -> SolutionPair {
     let input_string = read_to_string("inputs/day02.txt").unwrap().trim().to_string();
 
-    let input: Vec<usize> = input_string
+    let input: Vec<i32> = input_string
         .split(',')
-        .map(|n| n.parse::<usize>().unwrap())
+        .map(|n| n.parse::<i32>().unwrap())
         .collect();
     // Your solution here...
     let program = IntCode::new(input);

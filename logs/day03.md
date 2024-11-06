@@ -8,7 +8,7 @@ This day's problem consisted in checking the intersections of 2 wires in a grid.
 
 ## Problem solution
 
-I decided to learn nom this year so I parsed the input with it. The grammar is as follows:
+I decided to learn [nom](https://docs.rs/nom/latest/nom/) this year so I parsed the input with it. The grammar is as follows:
 
 ```Grammar
 Input     -> Wire \n Wire
