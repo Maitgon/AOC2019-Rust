@@ -1,9 +1,14 @@
+use core::panic;
+
 pub type Program = Vec<i32>;
 
 #[derive(Clone)]
 pub struct IntCode {
     pub program: Program,
     pub ip: usize,
+    pub input: Vec<i32>,
+    pub output: Vec<i32>,
+    pub halted: bool,
 }
 
 const ADD: usize = 1;
@@ -18,7 +23,7 @@ const HALT: usize = 99;
 
 impl IntCode {
     pub fn new(program: Program) -> Self {
-        Self { program, ip: 0 }
+        Self { program, ip: 0 , input: Vec::new(), output: Vec::new(), halted: false }
     }
 
     pub fn step(&mut self) -> bool {
@@ -42,16 +47,26 @@ impl IntCode {
             }
             INPUT => {
                 let a = self.program[self.ip + 1];
-                // get a number input not hardcoded
-                let mut input = String::new();
-                std::io::stdin().read_line(&mut input).unwrap();
-                self.program[a as usize] = input.trim().parse().unwrap();
+                if self.input.is_empty() {
+                    panic!("No input provided");
+                }
+                self.program[a as usize] = self.input.remove(0);
                 self.ip += 2;
+                //let a = self.program[self.ip + 1];
+                // get a number input not hardcoded
+                //let mut input = String::new();
+                //std::io::stdin().read_line(&mut input).unwrap();
+                //self.program[a as usize] = input.trim().parse().unwrap();
+                //self.ip += 2;
             }
             OUTPUT => {
                 let a = self.get_param(self.ip + 1, par_mode & 1);
-                println!("{}", a);
+                self.output.push(a);
                 self.ip += 2;
+                return false;
+                //let a = self.get_param(self.ip + 1, par_mode & 1);
+                //println!("{}", a);
+                //self.ip += 2;
             }
             JUMP_IF_TRUE => {
                 let a = self.get_param(self.ip + 1, par_mode & 1);
@@ -85,7 +100,10 @@ impl IntCode {
                 self.program[c as usize] = if a == b { 1 } else { 0 };
                 self.ip += 4;
             }
-            HALT => return false,
+            HALT => {
+                self.halted = true;
+                return false
+            }
             _ => panic!("Invalid opcode: {}", opcode),
         }
         true
