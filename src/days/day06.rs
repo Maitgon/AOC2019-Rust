@@ -1,6 +1,5 @@
 use crate::{Solution, SolutionPair};
 use std::fs::read_to_string;
-use itertools::Itertools;
 use std::collections::HashMap;
 use std::collections::HashSet;
 

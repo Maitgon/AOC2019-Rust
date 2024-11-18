@@ -12,11 +12,19 @@ pub fn solve() -> SolutionPair {
         .map(|n| n.parse::<i32>().unwrap())
         .collect();
     // Your solution here...
-    let mut program = IntCode::new(input);
+    let mut program = IntCode::new(input.to_vec());
+    
+    program.input.push(1);
     program.run();
     // Your solution here...
-    let sol1: u64 = 0;
-    let sol2: u64 = 0;
+    println!("{:?}", program.output);
+    let sol1: i32 = program.output[program.output.len() - 1];
+
+    let mut program = IntCode::new(input);
+
+    program.input.push(5);
+    program.run();
+    let sol2: i32 = program.output[0];
 
     (Solution::from(sol1), Solution::from(sol2))
 }
