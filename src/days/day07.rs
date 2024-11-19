@@ -13,7 +13,7 @@ pub fn solve() -> SolutionPair {
         .map(|n| n.parse::<i32>().unwrap())
         .collect();
 
-    let sol1 = 0;
+    let sol1 = part1(&input);
     let sol2 = part2(&input);
 
     (Solution::from(sol1), Solution::from(sol2))
@@ -79,7 +79,7 @@ fn get_signal(p: Vec<i32>, input: &[i32]) -> i32 {
                 exit = true;
                 break;
             }
-            signal = programs[i].output.remove(0);;
+            signal = programs[i].output.remove(0);
             if i == 4 {
                 signal_5 = signal;
             }
