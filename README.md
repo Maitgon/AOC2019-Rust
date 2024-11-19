@@ -13,3 +13,4 @@ My solutions for [Advent of Code 2019](https://adventofcode.com/2019) in Rust. I
 * ⭐⭐ [Day 5](logs/day05.md): [Sunny with a Chance of Asteroids](https://adventofcode.com/2019/day/5)
 * ⭐⭐ [Day 6](logs/day06.md): [Universal Orbit Map](https://adventofcode.com/2019/day/6)
 * ⭐⭐ [Day 7](logs/day07.md): [Amplification Circuit](https://adventofcode.com/2019/day/7)
+* ⭐⭐ [Day 8](logs/day08.md): [Space Image Format](https://adventofcode.com/2019/day/8)
